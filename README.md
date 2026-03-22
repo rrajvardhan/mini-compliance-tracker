@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mini Compliance Tracker
+
+A small web app to track compliance tasks for clients. Built as part of an internship assignment.
+
+## Live Demo
+🔗 https://mini-compliance-tracker-one.vercel.app
+
+## Features
+- View and select clients
+- View, add, and update tasks per client
+- Filter tasks by status and category
+- Overdue tasks are clearly highlighted
+- Shows basic stats — total, pending, and overdue count
+
+## Tech Stack
+- **Next.js** — for both frontend and backend (API routes)
+- **MongoDB** — to store clients and tasks
+- **Tailwind CSS** — for styling
+- **Vercel** — for deployment
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repo
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   git clone <repo-url>
+   cd mini-compliance-tracker
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```bash
+   npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Add a `.env.local` file:
+```
+   MONGO_URI=your_mongodb_connection_string
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Start the dev server:
+```bash
+   npm run dev
+```
 
-## Learn More
+5. Open http://localhost:3000 , this may vary
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Assumptions and Tradeoffs
+- Adding/editing clients is out of scope for this version
+- No login system 
+- Entity types are fixed (individual, partnership, NGO)
+- A task is tied to one client only
+- A task is "overdue" if the due date has passed and it's still Pending or In Progress
+* Used simple API  handling instead of proper database models

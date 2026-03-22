@@ -14,11 +14,17 @@ export default function AddTaskForm({ clientId, onAdd, onCancel }) {
     due_date: "",
     priority: "Medium",
   })
+  const [toast, setToast] = useState("")
 
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }))
 
   async function handleSubmit() {
-    if (!form.title.trim() || !form.due_date) return
+    if (!form.title.trim() || !form.due_date) {
+      setToast("Title and due date are required")
+      setTimeout(() => setToast(""), 2500)
+      return
+    }
+
     try {
       const res = await fetch("/api/tasks", {
         method: "POST",
@@ -37,12 +43,18 @@ export default function AddTaskForm({ clientId, onAdd, onCancel }) {
         ...form,
       })
     } catch (err) {
-      console.error("Failed to add task:", err)
+      setToast("Failed to add task")
+      setTimeout(() => setToast(""), 2500)
     }
   }
 
   return (
     <div className="border border-[#2a2a2a] rounded-sm p-4 flex flex-col gap-3 mb-6">
+      {toast && (
+        <div className="fixed top-6 right-6 text-[15px] px-4 py-2 bg-[#d4806a]/10 border border-[#d4806a]/40 text-[#d4806a] rounded-sm">
+          {toast}
+        </div>
+      )}
       <span className="text-[9px] font-bold font-mono tracking-[0.2em] uppercase text-[#7ec8a4]">
         New Task
       </span>
