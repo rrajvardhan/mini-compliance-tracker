@@ -26,7 +26,7 @@ A small web app to track compliance tasks for clients. Built as part of an inter
 
 1. Clone the repo
 ```bash
-   git clone <repo-url>
+   git clone https://github.com/rrajvardhan/mini-compliance-tracker
    cd mini-compliance-tracker
 ```
 
