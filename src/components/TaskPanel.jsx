@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import TaskRow from "./TaskRow"
+import Stats from "./Stats"
 import FilterBar from "./FilterBar"
 import AddTaskForm from "./AddTaskForm"
 import { STATUSES, CATEGORIES } from "./Utils"
@@ -94,20 +95,23 @@ export default function TaskPanel({ clientId }) {
         />
       )}
 
-      {/* Filters */}
-      <div className="flex flex-col gap-2.5 pb-4 border-b border-[#2a2a2a]">
-        <FilterBar
-          label="Status"
-          options={STATUSES}
-          value={statusFilter}
-          onChange={setStatus}
-        />
-        <FilterBar
-          label="Category"
-          options={CATEGORIES}
-          value={categoryFilter}
-          onChange={setCategory}
-        />
+      {/* Filters + Stats */}
+      <div className="flex items-start justify-between pb-4 border-b border-[#2a2a2a]">
+        <div className="flex flex-col gap-2.5">
+          <FilterBar
+            label="Status"
+            options={STATUSES}
+            value={statusFilter}
+            onChange={setStatus}
+          />
+          <FilterBar
+            label="Category"
+            options={CATEGORIES}
+            value={categoryFilter}
+            onChange={setCategory}
+          />
+        </div>
+        <Stats tasks={tasks} />
       </div>
 
       {/* List */}
