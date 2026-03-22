@@ -1,7 +1,16 @@
+"use client"
+
+import { useState } from "react"
+import SideBar from "@/components/SideBar"
+import TaskPanel from "@/components/TaskPanel"
+
 export default function Page() {
+  const [selectedClient, setSelectedClient] = useState(null)
+
   return (
-    <main className="flex-1 bg-red-500 flex items-center justify-center">
-      <h1 className="text-2xl font-semibold">Hello, world</h1>
-    </main>
+    <div className="flex min-h-screen">
+      <SideBar selectedId={selectedClient} onSelect={setSelectedClient} />
+      <TaskPanel clientId={selectedClient} />
+    </div>
   )
 }
