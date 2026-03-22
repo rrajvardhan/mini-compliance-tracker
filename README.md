@@ -5,6 +5,10 @@ A small web app to track compliance tasks for clients. Built as part of an inter
 ## Live Demo
 🔗 https://mini-compliance-tracker-one.vercel.app
 
+## Overview
+<img width="1914" height="1036" alt="image" src="https://github.com/user-attachments/assets/4330ef91-cb23-4d17-9eae-5736faa6c00c" />
+
+
 ## Features
 - View and select clients
 - View, add, and update tasks per client
@@ -49,4 +53,4 @@ A small web app to track compliance tasks for clients. Built as part of an inter
 - Entity types are fixed (individual, partnership, NGO)
 - A task is tied to one client only
 - A task is "overdue" if the due date has passed and it's still Pending or In Progress
-* Used simple API  handling instead of proper database models
+- Used lightweight API route handling with direct MongoDB queries instead of a formal schema/model layer.
